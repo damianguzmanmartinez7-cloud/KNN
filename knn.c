@@ -44,9 +44,6 @@ void limpiar_buffer()
 
 double calculoKNN(xy *arrPuntos, xyc *arrClase0, xyc *arrClase1, int linasConDatos, int cantidadPuntos, dc **arrPorPuntos, int cantidadDatosEnClase, xyc *knn)
 {
-
-    // printf("\n\t%d puntos a clasificar según su clase\n\n", cantidadPuntos);
-
     int mitad = linasConDatos / 2;
 
     int a = 0;
@@ -394,29 +391,19 @@ int main()
     //------------------------------------------------------------------------------------------
 
     double promedioX0 = calcularPromedioX(arrClase0, cantidadDatosEnClase);
-
     double promedioY0 = calcularPromedioY(arrClase0, cantidadDatosEnClase);
-
     double sumaX20 = calcularsumaXX(arrClase0, cantidadDatosEnClase);
-
     double sumaXY0 = calcularsumaXY(arrClase0, cantidadDatosEnClase);
-
     double pendiente0 = pendiente(promedioX0, promedioY0, sumaX20, sumaXY0, cantidadDatosEnClase);
-
     double ordenada0 = ordenadaAlOrigen(promedioX0, promedioY0, pendiente0);
 
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     double promedioX1 = calcularPromedioX(arrClase1, cantidadDatosEnClase);
-
     double promedioY1 = calcularPromedioY(arrClase1, cantidadDatosEnClase);
-
     double sumaX21 = calcularsumaXX(arrClase1, cantidadDatosEnClase);
-
     double sumaXY1 = calcularsumaXY(arrClase1, cantidadDatosEnClase);
-
     double pendiente1 = pendiente(promedioX1, promedioY1, sumaX21, sumaXY1, cantidadDatosEnClase);
-
     double ordenada1 = ordenadaAlOrigen(promedioX1, promedioY1, pendiente1);
 
     //------------------------------------------------------------------------------------------------------------
@@ -506,7 +493,7 @@ int main()
     printf("\tKNN, clasificación de punto por clase:\n");
     calculoKNN(arrPuntos, arrClase0, arrClase1, linasConDatos, cantidadPuntos, arrPorPuntos, cantidadDatosEnClase, knn);
     printf("\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n");
-    printf("\n\n\tMinimos cuadrados, clasificación de punto por clase:\n");
+    printf("\n\tDistancia de un punto a la línea de ajuste, clasificación de punto por clase:\n");
     printf("\n\tLínea de ajuste de la clase 0: y=%lf x %lf\n", pendiente0, ordenada0);
     printf("\n\tLínea de ajuste de la clase 1: y=%lf x +%lf\n", pendiente1, ordenada1);
     puntoRectaDistancia(pendiente0, ordenada0, pendiente1, ordenada1, arrPuntos, arrClase0, arrClase1, arrPorPuntosMin, puntoRecta, cantidadPuntos, linasConDatos);
@@ -539,7 +526,7 @@ int main()
 
     printf("\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n");
     printf("\n\tEl método KNN tiene %.2f %% de Accuracy\n", accuracyKNN);
-    printf("\n\tEl método de Minimos cuadrados tiene %.2f %% de Accuracy\n", accuracyPuntoRecta);
+    printf("\n\tEl método de Distancia de un punto a la línea de ajuste tiene %.2f %% de Accuracy\n", accuracyPuntoRecta);
 
     //----------------------------------------------------------------------------------------------------------------
     xy dosPuntos[2];
