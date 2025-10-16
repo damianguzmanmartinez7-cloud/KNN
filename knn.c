@@ -489,6 +489,7 @@ int main()
     //-------------------------------------------------------------------------------------
     xyc knn[cantidadPuntos];
     xyc puntoRecta[cantidadPuntos];
+    fclose(archivoPuntos);
     //----------------------------------------------------------------------------------------------------------------
     printf("\tKNN, clasificación de punto por clase:\n");
     calculoKNN(arrPuntos, arrClase0, arrClase1, linasConDatos, cantidadPuntos, arrPorPuntos, cantidadDatosEnClase, knn);
