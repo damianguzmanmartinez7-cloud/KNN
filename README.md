@@ -5,7 +5,8 @@
    - https://github.com/AlondraX23/KNN 
    - https://github.com/vanneguz/expansion
 
-3. Cómo ejecutamos el programa:
+3. [Conclusión](https://github.com/damianguzmanmartinez7-cloud/KNN/blob/main/Conclusi%C3%B3n.md)
+4. Cómo ejecutamos el programa
 ```
 gcc knn.c -o prueba -lm
 ./prueba
